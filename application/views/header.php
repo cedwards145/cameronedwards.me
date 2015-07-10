@@ -31,11 +31,11 @@
         $("li").removeClass("active");
 
 
-        if (page.includes("games"))
+        if (page.indexOf("games") > -1)
         {
           $("#games-li").addClass("active");
         }
-        else if (page.includes("web"))
+        else if (page.indexOf("web") > -1)
         {
           $("#web-li").addClass("active");
         }
@@ -46,18 +46,20 @@
         }
 
 
+        var mainDiv = $("#main");
+
         var width = $("#main").width();
-        $("#main").animate(
+        mainDiv.animate(
           {
             "margin-left": -1 * width
           }, 500, "swing", function()
             {
-              $("#main").empty();
-              $("#main").load(baseUrl + "/" + page.substring(1));
-              $("#main").css("margin-left", width);
+              mainDiv.empty();
+              mainDiv.load(baseUrl + "/" + page.substring(1));
+              mainDiv.css("margin-left", width);
             });
 
-        $("#main").animate(
+        mainDiv.animate(
           {
             "margin-left": 0
           }, 500);
