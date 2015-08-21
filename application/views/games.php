@@ -1,5 +1,8 @@
 <div class="row">
   <div class="col-xs-12">
+    
+  </div>
+  <div class="col-xs-12">
     <div class="img-container">
       <div class="img-text">
         <a href="#games/princess"><h2 style="color:#76BDE1;">A Princess' Request</h2></a>

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Games extends CI_Controller {
+class Web extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,27 +19,12 @@ class Games extends CI_Controller {
 	 */
 	public function index()
 	{
-		$allProjects = new Project();
-		$allProjects->where('section', 'games')->get();
-
-		$games = array();
-
-		foreach ($allProjects as $project)
-		{
-			array_push($games, $project->toArray());
-		}
-
-		$this->parser->parse('view-projects', array('projects' =>$games));
+		$this->load->view('web');
 	}
 
-	public function rpg()
+	public function conwyyoga()
 	{
 		$this->load->view('rpg');
-	}
-
-	public function princess()
-	{
-		$this->load->view('princess');
 	}
 }
 
