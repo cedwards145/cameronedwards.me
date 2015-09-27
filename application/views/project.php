@@ -1,4 +1,5 @@
-<?php echo img(array('src' =>'assets/img/{headerImage}')); ?>
+<?php echo img(array('src' =>'assets/img/{headerImage}',
+                     'class' => 'img-responsive')); ?>
 
 <style>
 h1, h2, h3
