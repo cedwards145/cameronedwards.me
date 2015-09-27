@@ -27,7 +27,7 @@ class Projects extends CI_Controller {
 		$project = new Project();
 		$project->where('tag', $tag)->get();
 
-		$this->parser->parse('project', $project->toArray());
+		$this->parser->parse('project', $project->toArray(false));
 	}
 }
 

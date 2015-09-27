@@ -67,7 +67,7 @@ class Admin extends CI_Controller {
 			$project = new Project();
 			$project->where('tag', $tag)->get();
 
-			$this->parser->parse('edit-project', $project->toArray());
+			$this->parser->parse('edit-project', $project->toArray(true));
 		}
 		else
 		{
@@ -208,7 +208,7 @@ class Admin extends CI_Controller {
 		 else
 		 {
 		 }
-		 redirect('/admin');	
+		 redirect('/admin');
 	 }
 
 	//========== LOGIN FUNCTIONS =====================

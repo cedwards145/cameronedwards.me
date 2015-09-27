@@ -21,16 +21,18 @@ class Project extends DataMapper {
         parent::__construct($id);
     }
 
-    function toArray()
+    function toArray($editing = false)
     {
       $screenshots = $this->getScreenshots();
+      $this->load->library('parsedown');
+      $Parsedown = new Parsedown();
 
       return array('id'          => $this->id,
                    'name'        => $this->name,
                    'headerImage' => $this->headerImage,
                    'section'     => $this->section,
                    'tag'         => $this->tag,
-                   'content'     => $this->content,
+                   'content'     => ($editing ? $this->content : $Parsedown->text($this->content)),
                    'color'       => $this->color,
                    'hasScreenshots' => (count($screenshots) > 0),
                    'screenshots' => $screenshots,

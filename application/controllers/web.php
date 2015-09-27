@@ -19,7 +19,17 @@ class Web extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('web');
+		$allProjects = new Project();
+		$allProjects->where('section', 'web')->get();
+
+		$websites = array();
+
+		foreach ($allProjects as $project)
+		{
+			array_push($websites, $project->toArray());
+		}
+
+		$this->parser->parse('view-projects', array('projects' =>$websites));
 	}
 
 	public function conwyyoga()

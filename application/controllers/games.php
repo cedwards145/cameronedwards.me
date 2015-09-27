@@ -37,10 +37,7 @@ class Games extends CI_Controller {
 		$this->load->view('rpg');
 	}
 
-	public function princess()
-	{
-		$this->load->view('princess');
-	}
+
 }
 
 /* End of file welcome.php */

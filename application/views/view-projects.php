@@ -4,7 +4,7 @@
     {projects}
       <div class="img-container">
         <div class="img-text">
-          <a href="#games/{tag}"><h2 style="color:{color};">{name}</h2></a>
+          <a href="#{section}/{tag}"><h2 style="color:{color};">{name}</h2></a>
         </div>
         <?php echo img(array('src' =>'assets/img/{headerImage}')); ?>
       </div>
