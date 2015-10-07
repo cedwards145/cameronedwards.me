@@ -40,6 +40,7 @@
 
 $route['games/(:any)'] = 'projects/view/$1';
 $route['web/(:any)'] = 'projects/view/$1';
+$route['blog/(:num)'] = 'blog/index/$1';
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 

@@ -6,167 +6,11 @@
     <?php echo link_tag('assets/css/bootstrap.min.css'); ?>
     <?php echo link_tag('assets/css/custom.css'); ?>
     <?php echo link_tag('assets/css/magnific.css'); ?>
+    <?php echo link_tag('assets/css/syntax.css'); ?>
 
     <title>Cameron Edwards.me</title>
   </head>
   <body>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/hashchange.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/magnific.min.js"></script>
-
-    <script>
-      $(document).ready(function()
-      {
-        $(window).hashchange( function ()
-        {
-          loadPage( location.hash );
-        })
-
-        $(window).hashchange();
-      });
-
-      function loadPage(page)
-      {
-        var getUrl = window.location;
-        var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-
-        $("li").removeClass("active");
-
-
-        if (page.indexOf("games") > -1)
-        {
-          $("#games-li").addClass("active");
-        }
-        else if (page.indexOf("web") > -1)
-        {
-          $("#web-li").addClass("active");
-        }
-        else if (page.indexOf("blog") > -1)
-        {
-          $("#blog-li").addClass("active");
-        }
-        else if (page.indexOf("admin") > -1)
-        {
-          $("#admin-li").addClass("active");
-        }
-        else
-        {
-          page = '#home';
-          $("#home-li").addClass("active");
-        }
-
-        var mainDiv = $("#main");
-
-        mainDiv.fadeOut(500, function()
-        {
-          mainDiv.empty();
-          mainDiv.load(baseUrl + "/" + page.substring(1));
-        });
-
-        mainDiv.fadeIn(500);
-
-        /*
-        var width = $("#main").width();
-        mainDiv.animate(
-          {
-            "margin-left": -1 * width
-          }, 500, "swing", function()
-            {
-              mainDiv.empty();
-              mainDiv.load(baseUrl + "/" + page.substring(1));
-              mainDiv.css("margin-left", width);
-            });
-
-        mainDiv.animate(
-          {
-            "margin-left": 0
-          }, 500, "swing");
-        */
-      }
-
-      function login()
-      {
-        $.ajax(
-        {
-          type: "POST",
-          url: "admin/submit",
-          data: $("#login-form").serialize(),
-          success: function(data)
-          {
-            if (data == "success")
-            {
-              alert("Login successful");
-              $(window).hashchange();
-            }
-            else
-            {
-              alert("Incorrect Username or Password");
-            }
-          }
-        });
-
-        return false;
-      }
-
-      function magnificInit()
-      {
-        $('#screenshots').magnificPopup(
-        {
-          delegate: 'a',
-          type: 'image',
-          gallery:{enabled:true}
-        });
-      }
-
-      function updateProject()
-      {
-        var tag = $("#tag-field").val();
-        var section = $('#section-field').val();
-        $.ajax(
-        {
-          type: "POST",
-          url: "admin/submitProject",
-          data: $("#form").serialize(),
-          success: function(data)
-          {
-            window.location.hash = "#" + section + "/" + tag;
-          }
-        });
-      }
-
-      function updateScreenshot()
-      {
-        $.ajax(
-        {
-          type: "POST",
-          url: "admin/submitScreenshot",
-          data: $("#form").serialize(),
-          success: function(data)
-          {
-            window.location.hash = "#admin";
-          }
-        });
-      }
-
-      function uploadScreenshot()
-      {
-        $.ajax(
-        {
-          type: "POST",
-          url: "admin/uploadScreenshot",
-          data: new FormData($("#screenshot-form")[0]),
-          processData: false,
-          contentType: false,
-          success: function(data)
-          {
-            window.location.hash = "#admin";
-          }
-        });
-      }
-    </script>
-
     <div class="navbar-default">
       <div class="container">
         <ul class="nav navbar-nav">
@@ -175,7 +19,6 @@
           <li id="blog-li"><a href="#blog">Blog</a></li>
           <li id="games-li"><a href="#games">Games</a></li>
           <li id="web-li"><a href="#web">Web</a><li>
-          <li id="admin-li"><a href="#admin">Admin</a><li>
         </ul>
       </div>
     </div>
@@ -185,6 +28,20 @@
 
       </div>
     </div>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/hashchange.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/magnific.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/main.js"</script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+      ga('create', 'UA-66605344-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
   </body>
 </html>
