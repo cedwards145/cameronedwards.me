@@ -14,7 +14,7 @@
     <div class="navbar-default">
       <div class="container">
         <ul class="nav navbar-nav">
-          <li><a class="navbar-brand">Cameron Edwards.me</a></li>
+          <li class="navbar-brand">Cameron Edwards.me</li>
           <li id="home-li"><a href="#home">Home</a></li>
           <li id="blog-li"><a href="#blog">Blog</a></li>
           <li id="games-li"><a href="#games">Games</a></li>

@@ -15,7 +15,6 @@ function loadPage(page)
 
   $("li").removeClass("active");
 
-
   if (page.indexOf("games") > -1)
   {
     $("#games-li").addClass("active");
@@ -32,6 +31,8 @@ function loadPage(page)
   {
     $("#admin-li").addClass("active");
   }
+  else if (page.indexOf("project") > -1)
+  {}
   else
   {
     page = '#home';

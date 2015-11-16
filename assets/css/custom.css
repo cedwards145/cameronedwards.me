@@ -8,6 +8,14 @@ html
   overflow-y: scroll;
 }
 
+.coverImg
+{
+
+  height:200px;
+  background-size:cover !important;
+  float:left;
+  opacity: 0.5;
+}
 .navbar-default {
   background-color: #111111;
   border-color: #222;
@@ -17,7 +25,7 @@ html
   color: #dddddd;
   font-size:15pt;
 }
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+.navbar-default, .navbar-default .navbar-brand:focus {
   color: #ffffff;
 }
 .navbar-default .navbar-text {
@@ -56,6 +64,10 @@ html
 }
 .navbar-default .navbar-link:hover {
   color: #ffffff;
+}
+
+.navbar-brand:hover{
+  color:#DDD!important;
 }
 
 @media (max-width: 767px) {
@@ -139,5 +151,5 @@ div.post-body > img, div.post-body > p > img
 {
   width: 200px;
   float: left;
-  margin:
+  margin: 30px;
 }

@@ -75,6 +75,7 @@ class Blog extends CI_Controller {
 		if ($id == 0)
 		{
 			$post = new Post();
+			$post->date = date("Y-m-d");
 		}
 		else
 		{
