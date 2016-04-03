@@ -38,7 +38,7 @@ class Project extends DataMapper {
                    'color'       => $this->color,
                    'hasScreenshots' => (count($screenshots) > 0),
                    'screenshots' => $screenshots,
-                   'hasVideos'   => (count($screenshots) > 0),
+                   'hasVideos'   => (count($videos) > 0),
                    'videos'      => $videos,
                    'downloads'   => array());
     }
