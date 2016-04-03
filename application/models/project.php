@@ -24,6 +24,8 @@ class Project extends DataMapper {
     function toArray($editing = false)
     {
       $screenshots = $this->getScreenshots();
+      $videos = $this->getVideos();
+
       $this->load->library('parsedown');
       $Parsedown = new Parsedown();
 
@@ -36,6 +38,8 @@ class Project extends DataMapper {
                    'color'       => $this->color,
                    'hasScreenshots' => (count($screenshots) > 0),
                    'screenshots' => $screenshots,
+                   'hasVideos'   => (count($screenshots) > 0),
+                   'videos'      => $videos,
                    'downloads'   => array());
     }
 
@@ -51,6 +55,20 @@ class Project extends DataMapper {
       }
 
       return $shots;
+    }
+
+    function getVideos()
+    {
+      $allVideos = new Video();
+      $allVideos->where('tag', $this->tag)->get();
+
+      $videos = array();
+      foreach ($allVideos as $video)
+      {
+        array_push($videos, $video->toArray());
+      }
+
+      return $videos;
     }
 }
 

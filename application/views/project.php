@@ -14,6 +14,26 @@ h1, h2, h3
 
     {content}
 
+    {if {hasVideos} == 1}
+      <h3>Videos</h3>
+
+      <div class="row" id="videos">
+
+      {videos}
+        <div class="col-xs-12 video-container">
+          {embedCode}
+        </div>
+      {/videos}
+
+      <script>
+        $(document).ready(function()
+        {
+          magnificInit();
+        });
+      </script>
+      </div>
+    {/if}
+
     {if {hasScreenshots} == 1}
       <h3>Screenshots</h3>
 
